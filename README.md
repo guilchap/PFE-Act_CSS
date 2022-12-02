@@ -5,7 +5,7 @@ Les espaces, majuscule etc dans les parties de code sont à respecter.
 # Exercice d'infrastructure
 Dans cette exercice, vous allez découvrir comment, de manière simplifié, implémenter un serveur web.<br/> <br/>
 Mais tout d'abord, qu'est ce qu'un serveur web? C'est un serveur, une machine, qui va herberger un site web. <br/>
-Dans le cas de notre exercice, notre serveur web est un serveur linux. Vous devez être habitué à la maison à utiliser Windows. Linux est un autre système d'opération qui nous permet d'être plus libre dans la création d'un serveur personnalisé (il est open source). <br/>
+Dans le cas de notre exercice, notre serveur web est un serveur linux. Vous devez être habitué à la maison à utiliser Windows. Linux est un autre système d'opération qui nous permet d'être plus libre dans la création d'un serveur personnalisé (il est open source). Contraiement à windows, nous allons travailler dans cet exercice seulement en invite de commande, c'est à dire que nous n'allons pas avoir d'interface graphique.<br/>
 Sur ce serveur Web, nous avons installé le service Apache qui va nous permettre d'afficher notre page web dans un navigateur internet comme Chrome ou Firefox.<br/>
 
 Pour que vous puissiez créer votre propre site web herbergé sur votre serveur web, nous vous proposons de réaliser cet exercice.
@@ -26,17 +26,22 @@ Pour que vous puissiez créer votre propre site web herbergé sur votre serveur 
  Lors de votre connexion au serveur web, vous allez pouvoir vous créer un utilisateur. Cette utilisateur correspond àvotre session. Il est semblable au session de votre ordinateur personnel. Il vous permettra d'avoir votre espace de travail, vos fichiers et dossiers personnels.<br/>
  Pour créer un utilisateur et un groupe à votre nom, nous entrons dans le terminal la commande suivante:<br/><br/>
  `adduser --home /home/$VotreNom $VotreNom`<br/>
-  => Entrer le mot de passe de votre choix, retenez le!<br/>
-  => Entrer le même mot de passe une deuxième fois<br/>
-  => Les informations ne sont que à titre indicatif, vous n'etes pas obligé de les remplir<br/>
-  => Appuyer sur `y` pour valider la création de votre utilisateur et de votre groupe <br/><br/>
+   => Entrer le mot de passe de votre choix, retenez le!<br/>
+   => Entrer le même mot de passe une deuxième fois<br/>
+   => Les informations ne sont que à titre indicatif, vous n'êtes pas obligé de les remplir<br/>
+   => Appuyer sur `y` pour valider la création de votre utilisateur et de votre groupe <br/><br/>
  
- Maintenant que votre utilisateur est créé, nous allons l'associer à un groupe afin qu'il récupère les droits de ce groupe. Nous souhaintons que notre utilisateur est les droits administrateur afin de pouvoir réaliser nos commandes, nous allons donc associer notre utilisateur au groupe `root`. Pour faire ça, nous entrons la commande suivante:<br/><br/>
- `adduser $VotreNom root`
- 
- Maintenant que notre utilisateur est créé et qu'il est dans le groupe de root, nous allons pouvoir continuer l'exercice en tant que cette utilisateur. Nous entrons la commande:
+ Maintenant que notre utilisateur est créé, nous allons pouvoir continuer l'exercice en tant que cette utilisateur. Nous entrons la commande:<br/><br/>
  `su $VotreNom`
  
- Maintenant, on peut voir que nous sommes connecter avec notre utilisateur. Toutes les actions de création que nous allons faire seront à notre utilisateur.
+ Maintenant, on peut voir que nous sommes connecter avec notre utilisateur. Devant l'espace ou vous entrez les commandes, on peut voir:
+ `$VotreNom@XXXX:/root$`<br/>
+ Cela signifie que vous êtes connecté avec votre utilisateur mais que vous vous trouver dans l'espace de travail de l'utilisateur de `root`.
+ 
+ Toutes les actions de création que nous allons faire appartiendront à notre utilisateur.
  
   ### - Créer un dossier
+  
+  Nous souhaitons  créer un dossier afin d'y placer notre fichier contenant notre page web. Ce dossier devra se situer dans notre espace de travail.
+  Nous allons devoir nous déplacer vers notre espace de travail. En linux, tout déplacement se fait grâce à la commande `cd`. Notre espace personnel s'appelle `/home/$VotreNom`, nous allons donc entrer la commande suivante:<br/><br/>
+  `cd /home/$VotreNom`
