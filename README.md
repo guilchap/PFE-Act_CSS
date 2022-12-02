@@ -45,3 +45,10 @@ Pour que vous puissiez créer votre propre site web herbergé sur votre serveur 
   Nous souhaitons  créer un dossier afin d'y placer notre fichier contenant notre page web. Ce dossier devra se situer dans notre espace de travail.
   Nous allons devoir nous déplacer vers notre espace de travail. En linux, tout déplacement se fait grâce à la commande `cd`. Notre espace personnel s'appelle `/home/$VotreNom`, nous allons donc entrer la commande suivante:<br/><br/>
   `cd /home/$VotreNom`
+  
+  Maintenant que nous nous situons dans le bon dossier, nous allons en créer un nouveau afin d'y placer notre site web. Pour créer un dossier que nous allons nommer "site_web", nous entrons cette commande:<br/><br/>
+  `mkdir site_web`
+  
+  On peut observer tous les fichiers et dossier présent dans l'espace de travail ou l'on se trouve avec la commande:<br/><br/>
+  `ls`<br/>
+  En effectuant cette commande, nous pouvons observer que notre dossier s'est bien créé.
