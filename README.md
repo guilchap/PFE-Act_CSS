@@ -13,24 +13,24 @@ Pour que vous puissiez créer votre propre site web herbergé sur votre serveur 
  # Création et modification du serveur Web
  
  Pour commencer votre exercice, vous allez devoir vous connecter à distance à votre machine. Une connexion à distance se fait à l'aide de la commande `ssh`. Cette commande nous permet une connexion sécurisé à notre machine distante grâce à un utilisateur (login) et un mot de passe. Nous pouvons comparer cette connexion à celle que vous réaliser sur votre ordinateur personnel. Pour vous connecter à votre machine distante, vous allez entrer la commande suivante: <br/>
- `ssh -p $PORTSsh etudiant@$IP`<br/>
+ `ssh -p $PORTssh etudiant@$IP`<br/>
  Entrez `yes` <br/><br/>
  Les variables `$PORTssh` et `$IP` vont vous être communiquées au préalable. Vous êtes maintenant connecté à votre machine distante.
- Nous allons également vous procurer un port pour vous connecter à votre site web, nous allons l'appeler `$PORTSite`. Il est important de le retenir pour la suite du projet.
+ Nous allons également vous procurer un port pour vous connecter à votre site web, nous allons l'appeler `$PORTsite`. Il est important de le retenir pour la suite du projet.
  
  ### - Se mettre en utilisateur suprême
  Nous allons par la suite devoir entrer des commandes qui peuvent compromettre le serveur. Pour quand même pouvoir les effectuer, nous devons avoir les droits administrateur, c'est à dire devenir l'utilisateur `root` ou un autre utilisateur avec les même droits que lui, dans le même groupe par exemple. Pour passer en utilisateur suprême, nous entrons cette commande dans le terminal:<br/><br/>
  `su -` <br/>Le mot de passe de l'utilisateur root est :`network`<br/><br/>
- **ATTENTION** : Le mot de passe de l'utilisateur suprême n'est jamais sensé être connu de tous, nous vous le donnons pour le bienfait de l'exercice.
+ **ATTENTION** : Le mot de passe de l'utilisateur suprême n'est jamais sensé être connu de tous, nous vous le donnons pour les bienfaits de l'exercice.
  
  ### - Démarrer le service apache
  
  Pour que la page web soit disponible, le service qui permet de l'afficher doit être démarrer, sinon la page à laquelle nous souhaitons accéder sera indisponible.
  Dans votre navigateur, entrer dans la barre de recherche l'adresse IP de votre machine et son port associer.<br/><br/>
- `$IP:$PORTSite`<br/>
+ `$IP:$PORTsite`<br/>
  Vous observez que la page n'est pas disponible.<br/>
- Nous pouvons également savoir si le service apache est démarrer sans accéder à la page web. Pour ça, il nous suffit de regarder les ports qui sont "ouverts" (ou en "écoute") sur notre machine. Si vous le fait avant d'avoir démarré le service apache, vous ne devriez pas voir apparaitre le port 80 dans les port ouvert.
- Le port 80 est le port habituel pour le protocole `http` qui sert à accéder à un site web. Pour observer les ports ouvert, entrez la commande:<br/>
+ Nous pouvons également savoir si le service apache est démarrer sans accéder à la page web. Pour ça, il nous suffit de regarder les ports qui sont "ouverts" (ou en "écoute") sur notre machine. Si vous le fait avant d'avoir démarré le service apache, vous ne devriez pas voir apparaitre le port 80 dans les ports ouverts.
+ Le port 80 est le port habituel pour le protocole `http` qui sert à accéder à un site web. Pour observer les ports ouverts, entrez la commande:<br/>
  `netsat -an`
  
 Dans le terminal, nous allons maintenant démarrer le service apache.<br/><br/>
@@ -77,11 +77,11 @@ Dans le terminal, nous allons maintenant démarrer le service apache.<br/><br/>
 
 ### - Copier un fichier
     
-  Nous vous déja pré-préparer un site web. Cependant, vous allez quand même devoir légèrement le modifier afin que ca soit votre page web. Cette page se trouve dans le dossier `/home/etudiant/site_web_docker` et se nomme `index.html`. Elle contient les informations qui vont nous etre afficher à l'écrant. Dans se dossier, nous pouvons également voir un fichier qui se nomme `index.css`. C'est la page de style associer à la page html. Elle va permettre de créer le design de la page. 
-Avnt de modifier notre site web, nous allons d'abord le copier dans notre dossier. Pour ça, nous lançons la commande:<br/>
-`cp /home/etudiant/index.html site_web/index.html`<br/><br/>
+  Nous vous déja pré-préparer un site web. Cependant, vous allez quand même devoir légèrement le modifier afin que ça soit votre page web. Cette page se trouve dans le dossier `/home/etudiant/site_web_docker` et se nomme `index.html`. Elle contient les informations qui vont nous etre afficher à l'écran. Dans se dossier, nous pouvons également voir un fichier qui se nomme `index.css`. C'est la page de style associer à la page html. Elle va permettre de créer le design de la page. 
+Avant de modifier notre site web, nous allons d'abord le copier dans notre dossier. Pour ça, nous lançons la commande:<br/>
+`cp /home/etudiant/site_web_docker/index.html site_web/index.html`<br/><br/>
 Nous devons également copier le fichier de style, nous lançons donc la commande:<br/>
-`cp /home/etudiant/index.css site_web/index.css`<br/><br/>
+`cp /home/etudiant/site_web_docker/index.css site_web/index.css`<br/><br/>
 Maintenant, si nous nous déplaçons dans le dossier `site_web` et que nous observons tous les fichiers présents, nous pouvons voir nos deux fichiers qui va créer notre page web.<br/>
 `cd site_web`<br/>
 `ls`<br/>
@@ -92,7 +92,7 @@ Nous allons modifier le site web afin qu'il vous soit personnalisé. Pour ça, n
 `nano index.html`
 
 Une fois que vous vous trouvez dans le fichier, vous allez vous trouver face à un grand nombre d'information. La plupart sont la syntaxe du fichier `.html`. Nous n'allons pas nous en préoccuper. Vous allez voir deux lignes d'étoiles avec un texte entre. Suivez l'instruction (écrivez votre prénom sous les lignes d'étoiles mais avant la ligne `</h1></div>`.
-Une fois ce la fait, vous pouvez quitter en fichier en appuyant sur les touches `ctrl` et `X` en même temps et appuyer sur la touche `Y` pour valider vos modifications.
+Une fois cela fait, vous pouvez quitter le fichier en appuyant sur les touches `ctrl` et `X` en même temps et appuyer sur la touche `Y` pour valider vos modifications.
 
 ### - Afficher la page web dans notre navigateur
 
@@ -100,7 +100,7 @@ Une fois que nos fichiers sont modifiés à notre convenance, nous allons les af
 `cp index.html /var/www/html/index.html`<br/>
 `cp index.css /var/www/html/index.css`<br/>
 
-Nous allons rafraichir la page dans notre navigateur qui était à l'adresse : `$IP:$PORTSite`
+Nous allons rafraichir la page dans notre navigateur qui était à l'adresse : `$IP:$PORTsite`
 
 Vous observer votre page web? <br/>
 # BRAVO, vous avez réussi!
